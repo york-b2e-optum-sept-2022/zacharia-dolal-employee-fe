@@ -21,4 +21,8 @@ export class HttpService {
   updateById(id: number, employee: IEmployee) : Observable<string> {
     return this.http.put<string>(`http://localhost:8080/api/employee/${id}`, employee)
   }
+
+  createEmployee(employee: IEmployee){
+    return this.http.post("http://localhost:8080/api/employee", employee)as Observable<IEmployee>;
+  }
 }

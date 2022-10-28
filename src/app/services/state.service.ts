@@ -25,6 +25,24 @@ export class StateService {
   //     role: "Peasant"
   //   }
   // ]
+  public $creating : Subject<boolean> = new Subject
+  creating: boolean = false;
+
+  isCreating(){
+    this.creating = !this.creating;
+    this.$creating.next(this.creating);
+  }
+
+  onCreate(employee: IEmployee){
+    this.http.createEmployee(employee).subscribe(newEmployee =>{
+      console.log(newEmployee);
+      this.http.getAllEmployees().subscribe(employees =>
+        this.employeesSubject.next(employees)
+      )
+    })
+    this.isCreating();
+  }
+
   private employeesSubject : Subject<IEmployee[]> = new Subject
 
   constructor(private http: HttpService) {

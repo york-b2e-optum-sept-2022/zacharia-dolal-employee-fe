@@ -1,1 +1,9 @@
-<app-employee *ngFor="let employee of employeeList" [employee]="employee"></app-employee>
+
+<div *ngIf="creating">
+  <app-create-employee></app-create-employee>
+</div>
+
+<div *ngIf="!creating">
+  <button (click)="onCreate()">Create Employee</button>
+  <app-employee *ngFor="let employee of employeeList" [employee]="employee"></app-employee>
+</div>
