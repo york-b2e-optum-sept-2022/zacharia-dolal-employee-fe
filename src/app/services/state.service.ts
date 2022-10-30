@@ -8,23 +8,6 @@ import {HttpService} from "./http.service";
 })
 export class StateService {
 
-
-  // getEmployeeList(): Observable<IEmployee[]>{
-  //   return this.e
-  //   // this.http.getEmployees().subscribe( employee =>{
-  //   //
-  //   // })
-  // }
-  // public employees: IEmployee[] = [
-  //   {
-  //     name: "Max",
-  //     role: "Supreme Leader"
-  //   },
-  //   {
-  //     name: "Dav",
-  //     role: "Peasant"
-  //   }
-  // ]
   public $creating : Subject<boolean> = new Subject
   creating: boolean = false;
 

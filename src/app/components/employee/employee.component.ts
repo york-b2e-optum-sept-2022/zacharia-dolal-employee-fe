@@ -13,9 +13,6 @@ export class EmployeeComponent implements OnInit {
 
   employeeCopy!: IEmployee;
 
-  // name: string = this.employee.name;
-  // role: string = this.employee.role;
-
   isUpdating: boolean = false;
 
   constructor(private state: StateService) { }
@@ -28,7 +25,7 @@ export class EmployeeComponent implements OnInit {
   }
 
   onUpdate(): void{
-    this.employeeCopy = {...this.employee}; //shallow copy of employee
+    this.employeeCopy = {...this.employee};
     this.isUpdating = !this.isUpdating;
   }
 
@@ -36,7 +33,6 @@ export class EmployeeComponent implements OnInit {
     this.isUpdating = !this.isUpdating;
   }
   onSave(){
-    // this.employee = this.employeeCopy
     this.state.updateEmployeeById(this.employeeCopy?.id, this.employeeCopy)
   }
 
